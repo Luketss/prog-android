@@ -9,6 +9,10 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```bash
    npm install
    ```
+   # Apenas para uso se necessário. Não utilizar caso o npm install tenha funcionado
+   ```bash
+   npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
+   ```
 
 2. Start the app
 
