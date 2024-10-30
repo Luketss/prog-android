@@ -117,7 +117,7 @@ def list_all_produtos(
 
 
 @router.post("/produtos")
-def create_produto(products: Order, session: SessionDep) -> Product:
+def create_produto(products: Product, session: SessionDep) -> Product:
     session.add(products)
     session.commit()
     session.refresh(products)
@@ -125,8 +125,8 @@ def create_produto(products: Order, session: SessionDep) -> Product:
 
 
 @router.get("/produtos/{product_id}")
-def list_produto(product_id: int, session: SessionDep) -> Order:
-    produto = session.get(User, product_id)
+def list_produto(product_id: int, session: SessionDep) -> Product:
+    produto = session.get(Product, product_id)
     if not produto:
         raise HTTPException(status_code=404, detail="produto not found")
     return produto

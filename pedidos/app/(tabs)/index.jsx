@@ -25,7 +25,7 @@ export default function LoginScreen() {
     setFoundUser(false);
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/login?email=${email}&password=${password}`,
+        `http://192.168.2.190:8000/login?email=${email}&password=${password}`,
         {
           method: "POST",
           headers: {
