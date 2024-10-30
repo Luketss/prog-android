@@ -7,18 +7,18 @@ import {
   Alert,
   StyleSheet,
   Image,
-  TouchableWithoutFeedback,
-  Keyboard,
 } from "react-native";
-import { useNavigation, StackActions } from "@react-navigation/native";
-import { useRouter, useFocusEffect } from "expo-router";
+import { useRouter } from "expo-router";
+import { useCart, CartProvider } from "../cartContext";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [foundUser, setFoundUser] = useState(false);
   const [foundUserMessage, setFoundUserMessage] = useState("");
-  const navigation = useNavigation();
+
+  const { setUser } = useCart();
+
   const router = useRouter();
 
   const handleLogin = async () => {
@@ -37,6 +37,7 @@ export default function LoginScreen() {
 
       if (response.ok) {
         const data = await response.json();
+        setUser(data.user)
         Alert.alert("Success", `Welcome, ${data.email}!`);
         console.log("sucesso");
 
