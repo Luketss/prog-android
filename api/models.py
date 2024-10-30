@@ -6,9 +6,9 @@ from enum import Enum, IntEnum
 
 
 class OrderStatusEnum(IntEnum):
-    PRODUCAO = (1,)
-    PRONTO = (2,)
-    EMROTA = (3,)
+    PRODUCAO = 1
+    PRONTO = 2
+    EMROTA = 3
     ENTREGUE = 4
 
 
