@@ -69,7 +69,13 @@ def login(
         data={"sub": user.username}, expires_delta=access_token_expires
     )
 
-    return {"access_token": access_token, "token_type": "bearer", "user": user.id}
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user": user.id,
+        "email": user.email,
+        "user": user.username,
+    }
 
 
 @router.post("/users/")
@@ -136,7 +142,7 @@ def list_produto(product_id: int, session: SessionDep) -> Product:
 def delete_produto(product_id: int, session: SessionDep):
     produto = session.get(Order, product_id)
     if not produto:
-        raise HTTPException(status_code=404, detail="user not found")
+        raise HTTPException(status_code=404, detail="Pedido not found")
 
 
 @router.get("/pedidos")

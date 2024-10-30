@@ -28,13 +28,18 @@ export default function Cart() {
         }),
       });
 
+      if (response.ok) {
+        const data = await response.json();
+        setOrderId(data.id)
+      }
+
       if (!response.ok) {
         throw new Error(`HTTP status ${response.status}`);
       }
 
-      const data = await response.json();
-      console.log("Data received:", data);
-      setOrderId(data.id);
+      // const data = await response.json();
+      // console.log("Data received:", data);
+      // setOrderId(data.id);
     } catch (error) {
       console.error("Fetch error:", error.message || error);
     }

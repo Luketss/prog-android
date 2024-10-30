@@ -37,8 +37,9 @@ export default function LoginScreen() {
 
       if (response.ok) {
         const data = await response.json();
-        setUser(data.user)
-        Alert.alert("Success", `Welcome, ${data.email}!`);
+        console.log(data);
+        setUser(data.user);
+        Alert.alert("Success", `Welcome, ${data.user}!`);
         console.log("sucesso");
 
         // Navigate to Home screen, replacing the current stack entry
